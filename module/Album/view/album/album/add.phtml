@@ -1,0 +1,33 @@
+<?php
+ // module/Album/view/album/album/add.phtml:
+
+ $title = 'Add new user';
+ $this->headTitle($title);
+ ?>
+ <h1><?php echo $this->escapeHtml($title); ?></h1>
+ <table><tbody>
+ <?php
+ $form->setAttribute('action', $this->url('album', array('action' => 'add')));
+ $form->prepare();
+ echo $this->form()->openTag($form);
+ echo $this->formHidden($form->get('id'));
+ ?>
+<tr><td>
+ <?php echo $this->formRow($form->get('title')); ?>
+ </tr></td>
+<tr><td>
+ <?php echo $this->formRow($form->get('artist')); ?>
+ </tr></td>
+<tr><td>
+ <?php echo $this->formRow($form->get('type')); ?>
+ </tr></td>
+<tr><td>
+ <?php echo $this->formRow($form->get('sex')); ?>
+ </tr></td>
+ <tr><td>
+ <?php
+ echo $this->formSubmit($form->get('submit'));
+ echo $this->form()->closeTag();
+ ?>
+  </tr></td>
+  </table></tbody>
